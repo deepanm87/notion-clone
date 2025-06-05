@@ -5,12 +5,10 @@ type SpacerProps = {
     showHint: boolean
 }
 
-const Spacer = ({ handleClick, showHint }: SpacerProps) => {
+export const Spacer = ({ handleClick, showHint }: SpacerProps) => {
     return(
         <div className={styles.spacer} onClick={handleClick}>
             {showHint && "Click to create the first paragraph."}
         </div>
     )
 }
-
-export default Spacer

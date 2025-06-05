@@ -1,7 +1,7 @@
 import { useRef, ChangeEventHandler } from "react"
 import styles from "./Cover.module.css"
 
-const Cover = () => {
+export const Cover = () => {
 
     const fileInputRef = useRef<HTMLInputElement>(null)
 
@@ -22,5 +22,3 @@ const Cover = () => {
         </div>
     )
 }
-
-export default Cover

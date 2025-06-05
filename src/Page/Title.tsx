@@ -9,7 +9,7 @@ type TitleProps = {
     addNode(node: NodeData, index: number): void
 }
 
-const Title = ({ title, changePageTitle, addNode}: TitleProps) => {
+export const Title = ({ title, changePageTitle, addNode}: TitleProps) => {
 
     const headerRef = useRef<HTMLHeadingElement>(null)
 
@@ -38,5 +38,3 @@ const Title = ({ title, changePageTitle, addNode}: TitleProps) => {
         </div>
     )
 }
-
-export default Title
