@@ -1,10 +1,11 @@
 import type { Page, NodeData, NodeType } from "../utils/types"
-import { useImmer } from "use-immer"
 import { arrayMove } from "@dnd-kit/sortable"
+import { useSyncedState } from "./useSyncedState"
+import { updatePage } from "../utils/updatePage"
 
 export const usePageState = (initialState: Page) => {
 
-    const [page, setPage] = useImmer<Page>(initialState)
+    const [page, setPage] = useSyncedState(initialState, updatePage)
     
     const addNode = (node: NodeData, index: number) => {
         setPage(draft => draft.nodes.splice(index, 0, node))
