@@ -22,25 +22,21 @@ export const BasicNode = ({ node, updateFocusedIndex, isFocused, index }: BasicN
     const { changeNodeValue, changeNodeType, removeNodeByIndex, addNode } = useAppState()
 
     useEffect( () => {
+        if(nodeRef.current && !isFocused) {
+            nodeRef.current.textContent = node.value
+        }
         if(isFocused){
             nodeRef.current?.focus()
         } else {
             nodeRef.current?.blur()
         }
-    }, [isFocused])
-
-    useEffect( () => {
-        if(nodeRef.current && !isFocused) {
-            nodeRef.current.textContent = node.value
-        }
-    }, [node])
+    }, [node, isFocused])
 
     const parseCommand = (nodeType: NodeType) => {
         if(nodeRef.current) {
             changeNodeType(index, nodeType)
             nodeRef.current.textContent = ""
         }
-        
     }
 
     const handleInput: FormEventHandler<HTMLDivElement> = ({ currentTarget }) => {
@@ -81,13 +77,13 @@ export const BasicNode = ({ node, updateFocusedIndex, isFocused, index }: BasicN
                 showCommandPanel && (<CommandPanel selectItem={parseCommand} nodeText={node.value} />)
             }
             <div
-            onInput = {handleInput}
-            onClick = {handleClick}
-            onKeyDown = {onKeyDown}
-            ref = {nodeRef} 
-            contentEditable
-            suppressContentEditableWarning
-            className={cx(styles.node, styles[node.type])}
+                onInput = {handleInput}
+                onClick = {handleClick}
+                onKeyDown = {onKeyDown}
+                ref = {nodeRef} 
+                contentEditable
+                suppressContentEditableWarning
+                className={cx(styles.node, styles[node.type])}
              />
         </>
         

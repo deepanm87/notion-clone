@@ -40,8 +40,6 @@ export const PageNode = ({ node, isFocused, index }: PageNodeProps) => {
         }
     }, [isFocused, removeNodeByIndex, index, navigate, node])
 
-
-
     useEffect( () => {
         const fetchPageTitle = async () => {
             const {data} = await supabase.from("pages").select("title").eq("slug", node.value).single()
@@ -61,7 +59,7 @@ export const PageNode = ({ node, isFocused, index }: PageNodeProps) => {
             onClick={navigateToPage}
             className={cx(styles.node, styles.page, {[styles.focused]: isFocused})}
         >
-            {pageTitle}
+           📄 {pageTitle}
         </div>
     )
 }

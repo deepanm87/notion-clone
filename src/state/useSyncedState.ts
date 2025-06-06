@@ -1,4 +1,4 @@
-import type { ImmerHook, useImmer } from "use-immer"
+import { ImmerHook, useImmer } from "use-immer"
 import { useRef, useEffect } from "react"
 
 export const useSyncedState = <TState>(

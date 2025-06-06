@@ -32,7 +32,6 @@ export const Cover = ({ filePath, changePageCover}: CoverProps) => {
                 filePath ? (<FileImage className={styles.image} filePath={filePath} />) : 
                 ( <img src="./notes.png" alt="notes app cover image" className={styles.image} />)
             }
-            <img src="./notes.png" alt="cover image of notes logo" className={styles.image}/>
             <button className={styles.button} onClick={onChangeCoverImage}>Change cover</button>
             <input onChange={onCoverImageUpload} style={{ display: "none" }} type="file" ref={fileInputRef} />
         </div>

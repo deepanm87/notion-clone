@@ -10,7 +10,7 @@ export const Private = ({ component}: PrivateProps) => {
     const { session, loading } = useAuthSession()
 
     if(loading) {
-        <>
+       return <>
             Authenticating...
         </>
     }

@@ -1,5 +1,4 @@
-import { useState } from "react"
-import type { FormEvent } from "react"
+import { useState, FormEvent } from "react"
 import { useAuthSession } from "./AuthSessionContext"
 import { Navigate } from "react-router-dom"
 import styles from "../utils.module.css"

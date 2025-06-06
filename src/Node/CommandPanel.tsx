@@ -26,7 +26,7 @@ const supportedNodeTypes: SupportedNodeType[] = [
 
 export const CommandPanel = ({ selectItem, nodeText } : CommandPanelProps) => {
     const [selectedItemIndex, setSelectedItemIndex] = useState(0)
-    const [overflows, ref] = userOverFlowsScreenBottom()
+    const { overflows, ref } = userOverFlowsScreenBottom()
 
     useEffect( () => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -57,11 +57,15 @@ export const CommandPanel = ({ selectItem, nodeText } : CommandPanelProps) => {
                 {supportedNodeTypes.map( (type,index) => {
                     const selected = selectedItemIndex === index
 
-                    return <li 
-                        onClick={() => selectItem(type.value)} 
-                        key={type.value}
-                        className={cx({[styles.selected]:selected })}
-                    >{type.name}</li>
+                    return (
+                        <li 
+                            onClick={() => selectItem(type.value)} 
+                            key={type.value}
+                            className={cx({[styles.selected]:selected })}
+                        >
+                            {type.name}
+                        </li>
+                    )
                 })}
             </ul>
         </div>

@@ -15,7 +15,7 @@ type AuthSessionProviderProps = {
 }
 
 export const AuthSessionProvider = ({children}: AuthSessionProviderProps) => {
-    const [session, setSession] = useState<Session>(null)
+    const [session, setSession] = useState<Session | null>(null)
     const [loading, setLoading] = useState(true)
 
     useEffect( () => {
@@ -29,7 +29,7 @@ export const AuthSessionProvider = ({children}: AuthSessionProviderProps) => {
             }
         }
         auth()
-        supabase.auth.onAuthStateChange( (event, session) => {
+        supabase.auth.onAuthStateChange( (_event, session) => {
             setSession(session)
             setLoading(false)
         })
