@@ -12,7 +12,6 @@ function App() {
         <Private component={<AppStateProvider>
             <Page />
           </AppStateProvider>} />
-          
         } />
       <Route 
         path="/"
@@ -24,7 +23,6 @@ function App() {
         }
       />
     </Routes>
-    
   )
 }
 

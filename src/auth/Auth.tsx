@@ -1,12 +1,14 @@
-import { useState, FormEvent } from "react"
+import { useState } from "react"
+import type { FormEvent } from "react"
 import { useAuthSession } from "./AuthSessionContext"
 import { Navigate } from "react-router-dom"
 import styles from "../utils.module.css"
+import { supabase } from "../supabaseClient"
 
 export const Auth = () => {
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState("")
-    const [session] = useAuthSession()
+    const { session } = useAuthSession()
 
     const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -48,7 +50,6 @@ export const Auth = () => {
                     </form>
                 )}
             </div>
-
         </div>
     )
 }
