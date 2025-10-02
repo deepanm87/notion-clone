@@ -14,6 +14,7 @@ export default function LiveCursorProvider({
 
   function handlePointerMove(e: PointerEvent<HTMLDivElement>) {
     const cursor = { x: Math.floor(e.pageX), y: Math.floor(e.pageY) }
+    updateMyPresence({ cursor })
   }
 
   function handlePointerLeave(e: PointerEvent <HTMLDivElement>) {
