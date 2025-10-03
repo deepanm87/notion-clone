@@ -8,6 +8,10 @@ import { doc, updateDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import { FormEvent, useEffect, useState, useTransition } from "react"
 import InviteUser from "./InviteUser"
+import DeleteDocument from "./DeleteDocument"
+import ManageUsers from "./ManageUsers"
+import Avatars from "./Avatars"
+import useOwner from "@/lib/useOwner"
 
 
 export default function Document({ id }: { id: string }) {
