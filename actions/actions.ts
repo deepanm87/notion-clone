@@ -40,6 +40,37 @@ export async function createNewDocument() {
   return { docId: docRef.id }
 }
 
+export async function inviteUserToDocument(roomId: string, email: string) {
+  const { userId } = await auth()
+
+  if (!userId) {
+    throw new Error("Unauthorized")
+  }
+  
+  try {
+    await adminDb
+      .collection("users")
+      .doc(email)
+      .collection("rooms")
+      .doc(roomId)
+      .set({
+        userId: email,
+        role: "editor",
+        createdAt: new Date(),
+        roomId
+      })
+
+      return {
+        success: true
+      }
+  } catch (error) {
+    console.error(error)
+    return {
+      success: false
+    }
+  }
+}
+
 export async function deleteDocument(roomId: string) {
   const { userId } = await auth()
 

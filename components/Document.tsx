@@ -7,6 +7,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore"
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import { FormEvent, useEffect, useState, useTransition } from "react"
+import InviteUser from "./InviteUser"
 
 
 export default function Document({ id }: { id: string }) {
